@@ -89,6 +89,38 @@ http://localhost:5173 에서 앱을 사용할 수 있습니다.
 4. Static Site: Root `ui`, Build `npm install && npm run build`, Publish `dist`
 5. 프런트엔드에 `VITE_API_URL` 환경 변수로 백엔드 URL 설정
 
+## GitHub에 푸시하기
+
+저장소: https://github.com/chocoarcher/order-app
+
+### Cursor에서 (GUI)
+
+1. 왼쪽 **소스 제어** 클릭
+2. 변경 파일 옆 **+** (Stage) 또는 **모두 스테이징**
+3. 메시지 입력 (예: `fix: UI 배포 설정 수정`)
+4. **Commit** 클릭
+5. **Sync Changes** 또는 **Publish Branch** 클릭
+
+### 터미널 / 스크립트
+
+프로젝트 상위 폴더(`소프트`)에서:
+
+```powershell
+cd "c:\Users\user 10\Desktop\소프트"
+.\scripts\git-push.ps1 "커밋 메시지"
+```
+
+또는 직접:
+
+```powershell
+cd "c:\Users\user 10\Desktop\소프트"
+git add -A
+git commit -m "커밋 메시지"
+git push order-app main
+```
+
+푸시 후 Render → **Manual Deploy** → **Deploy latest commit**
+
 ## 사용 흐름
 
 1. **주문하기** 탭에서 메뉴 선택 → 장바구니 담기 → 주문하기
