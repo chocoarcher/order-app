@@ -1,0 +1,9 @@
+{
+  "name": "order-app-root",
+  "private": true,
+  "description": "Render 배포용 루트 package.json (실제 서버는 order-app/server)",
+  "scripts": {
+    "build": "npm install --prefix order-app/server",
+    "start": "node order-app/server/index.js"
+  }
+}

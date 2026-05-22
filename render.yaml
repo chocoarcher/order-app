@@ -1,0 +1,20 @@
+# Render Blueprint — GitHub 저장소 루트에 위치
+# 저장소 구조: order-app/server, order-app/ui
+services:
+  - type: web
+    name: order-app-api
+    runtime: node
+    rootDir: order-app/server
+    buildCommand: npm install
+    startCommand: node index.js
+    envVars:
+      - key: DB_HOST
+        sync: false
+      - key: DB_PORT
+        value: "5432"
+      - key: DB_NAME
+        sync: false
+      - key: DB_USER
+        sync: false
+      - key: DB_PASSWORD
+        sync: false
