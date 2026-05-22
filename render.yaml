@@ -1,5 +1,6 @@
-# Render Blueprint — GitHub 저장소 루트에 위치
-# 저장소 구조: order-app/server, order-app/ui
+# Render Blueprint — GitHub 저장소 루트
+# 권장: rootDir = order-app/server / build = npm install / start = node index.js
+# 또는 루트 비움 / build = npm install / start = npm start (루트 index.js 사용)
 services:
   - type: web
     name: order-app-api
@@ -7,6 +8,7 @@ services:
     rootDir: order-app/server
     buildCommand: npm install
     startCommand: node index.js
+    # 루트 배포 시: rootDir 비우고 startCommand = npm start
     envVars:
       - key: DB_HOST
         sync: false
