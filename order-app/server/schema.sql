@@ -1,0 +1,26 @@
+CREATE TABLE IF NOT EXISTS menus (
+  id SERIAL PRIMARY KEY,
+  name VARCHAR(100) NOT NULL,
+  description TEXT,
+  price INTEGER NOT NULL,
+  image_url VARCHAR(255),
+  stock INTEGER NOT NULL DEFAULT 10
+);
+
+CREATE TABLE IF NOT EXISTS orders (
+  id SERIAL PRIMARY KEY,
+  created_at TIMESTAMP NOT NULL DEFAULT NOW(),
+  status VARCHAR(20) NOT NULL DEFAULT '주문 접수',
+  total_amount INTEGER NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS order_items (
+  id SERIAL PRIMARY KEY,
+  order_id INTEGER NOT NULL REFERENCES orders(id) ON DELETE CASCADE,
+  menu_id INTEGER NOT NULL REFERENCES menus(id),
+  menu_name VARCHAR(100) NOT NULL,
+  quantity INTEGER NOT NULL,
+  options JSONB NOT NULL DEFAULT '{}',
+  unit_price INTEGER NOT NULL,
+  line_total INTEGER NOT NULL
+);
