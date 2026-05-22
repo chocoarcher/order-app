@@ -20,3 +20,13 @@ services:
         sync: false
       - key: DB_PASSWORD
         sync: false
+
+  - type: web
+    name: order-app-ui
+    runtime: static
+    rootDir: order-app/ui
+    buildCommand: npm install && npm run build
+    staticPublishPath: dist
+    envVars:
+      - key: VITE_API_URL
+        sync: false

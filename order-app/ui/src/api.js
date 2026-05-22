@@ -1,4 +1,6 @@
-const API_BASE = import.meta.env.VITE_API_URL || '';
+// 로컬: vite proxy 사용 (VITE_API_URL 비움)
+// Render: 빌드 시 VITE_API_URL = 백엔드 URL (예: https://xxx.onrender.com)
+const API_BASE = (import.meta.env.VITE_API_URL || '').replace(/\/$/, '');
 
 async function request(path, options = {}) {
   const res = await fetch(`${API_BASE}${path}`, {
