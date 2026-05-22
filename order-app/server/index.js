@@ -126,7 +126,21 @@ async function initStore() {
   }
 }
 
-app.use(cors());
+app.use(
+  cors({
+    origin(origin, callback) {
+      if (
+        !origin ||
+        origin.includes('localhost') ||
+        origin.includes('onrender.com')
+      ) {
+        callback(null, true);
+      } else {
+        callback(null, true);
+      }
+    },
+  })
+);
 app.use(express.json());
 
 const STATUS_FLOW = ['주문 접수', '제조 중', '제조 완료'];
